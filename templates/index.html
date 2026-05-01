@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Crop Disease Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">🌿</div>
+            <h1>Crop Disease Detector</h1>
+            <p>Upload a photo of a potato or tomato leaf to identify diseases and get instant treatment recommendations.</p>
+        </header>
+
+        <main>
+            <div class="upload-section" id="upload-section">
+                <div class="drop-zone" id="drop-zone">
+                    <div class="drop-icon">📸</div>
+                    <h3>Drag & Drop your image here</h3>
+                    <p>or</p>
+                    <button class="btn-primary" id="browse-btn">Browse Files</button>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+                
+                <div class="preview-zone hidden" id="preview-zone">
+                    <img id="image-preview" src="" alt="Preview">
+                    <div class="action-buttons">
+                        <button class="btn-secondary" id="reset-btn">Choose Another</button>
+                        <button class="btn-primary" id="analyze-btn">Analyze Image</button>
+                    </div>
+                </div>
+                
+                <div class="loading-zone hidden" id="loading-zone">
+                    <div class="spinner"></div>
+                    <p>Analyzing with AI...</p>
+                </div>
+            </div>
+
+            <div class="results-section hidden" id="results-section">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2>Analysis Result</h2>
+                        <span class="confidence badge" id="res-confidence">99.9%</span>
+                    </div>
+                    
+                    <div class="mock-warning hidden" id="mock-warning">
+                        ⚠️ Running in Mock Mode (Model not trained yet)
+                    </div>
+
+                    <div class="disease-info">
+                        <h3 class="disease-name" id="res-name">Tomato Early Blight</h3>
+                        <span class="disease-type badge" id="res-type">Fungal Disease</span>
+                        
+                        <div class="info-block">
+                            <h4>Description</h4>
+                            <p id="res-desc">Description goes here.</p>
+                        </div>
+                        
+                        <div class="info-block treatment">
+                            <h4>🩺 Recommended Treatment</h4>
+                            <p id="res-cure">Treatment instructions go here.</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary full-width mt-4" id="new-scan-btn">Scan New Leaf</button>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Powered by MobileNetV2 Deep Learning</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

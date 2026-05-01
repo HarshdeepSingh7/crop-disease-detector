@@ -1,0 +1,30 @@
+# Dataset and compressed files
+data/
+temp_plantdisease/
+*.zip
+
+# Trained models and large artifacts
+models/
+*.h5
+
+# Flask uploads
+uploads/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment files
+.env
+venv/
+env/
+ENV/
+.venv/
+
+# IDE/OS specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
